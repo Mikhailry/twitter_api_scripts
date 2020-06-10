@@ -11,7 +11,8 @@ import os
 # show the working directory
 os.getcwd()
 
-# authentication credentials
+# authentication credentials (paste your own credentials)
+# to get your twitter api credentials - register your app at https://developer.twitter.com/en
 auth = tweepy.OAuthHandler('consumer key', 'consumer secret')
 auth.set_access_token('access token', 'access token secret')
 
@@ -25,7 +26,7 @@ except:
 # twitter api authentication
 api = tweepy.API(auth)
 
-# get the @user user id
+# get the @user user id and return 100 items
 uid = api.get_user('twitter_user_name')
 
 try:
