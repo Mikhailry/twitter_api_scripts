@@ -1,5 +1,7 @@
 """
-The following script uses the Twitter search API for “your search query” and print to the screen a list of distinct hashtags appearing in first 100 results the API returns and the number of times each hashtag appears.
+The following script uses the Twitter search API for “your search query” and 
+print to the screen a list of distinct hashtags appearing in first 100 results the API returns and 
+the number of times each hashtag appears.
 """
 
 # importing libraries
@@ -11,7 +13,8 @@ from itertools import groupby
 # show the working directory
 os.getcwd()
 
-# authentication credentials (Stored here for your convinience)
+# authentication credentials (paste your own credentials)
+# to get your twitter api credentials - register your app at https://developer.twitter.com/en
 auth = tweepy.OAuthHandler('consumer key', 'consumer secret')
 auth.set_access_token('access token', 'access token secret')
 
@@ -31,7 +34,9 @@ uid = api.get_user('twitter_user_name')
 
 # create empty list to store hashtags
 ht=[]
-# search for #Seattle
+
+# search for #Seattle and return 100 items
+# feel free to set a variable to return different number of items
 tweets = tweepy.Cursor(api.search, q='#Seattle', lang='en').items(100)
 # extract hashtags from api output
 ent = [tweet.entities['hashtags'] for tweet in tweets]
